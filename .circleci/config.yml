@@ -8,4 +8,4 @@ jobs:
       - run:
           name: Execute deploy.sh
           command: |
-            bash sh ./deploy.sh
+            bash sh deploy.sh
