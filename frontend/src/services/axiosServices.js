@@ -5,7 +5,7 @@ import axios from 'axios';
 // Create an instance of Axios with custom configuration
 const axiosInstance = axios.create({
   baseURL: 'http://103.75.186.153:5002', // Replace with your API base URL
-  timeout: 10000, // Set a timeout in milliseconds
+  timeout: 10000, // Set a timeout in milliseconds,
 });
 
 // Function to set the authorization token
@@ -17,7 +17,12 @@ const setAuthToken = (token) => {
   }
 };
 
+// create Get Data 
+
+
+
 // Define your service functions
+
 const axiosService = {
   get: (url) => axiosInstance.get(url),
   post: (url, data) => axiosInstance.post(url, data),

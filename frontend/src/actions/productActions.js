@@ -29,13 +29,12 @@ import {
   PRODUCT_TOP_FAIL,
 } from '../constants/productConstants'
 import { logout } from './userActions'
-
+import { axiosService, setAuthToken } from '../services/axiosServices'
 export const listProducts = (keyword = '', pageNumber = '',sortName='', sort=true,category='') => async (
   dispatch
 ) => {
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST })
-    console.log("call api",category)
     const { data } = await axios.get(
       `/api/products?keyword=${keyword}&category=${category}&pageNumber=${pageNumber}&sortBy=${sortName}&sort=${sort ? 'asc' : 'desc'}`
     )
