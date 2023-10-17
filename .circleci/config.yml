@@ -2,10 +2,16 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: longkaka/gitlabci-rsync # Use the appropriate image
+      - image: longkaka/gitlabci-rsync # Use the appropriate Node.js version
     steps:
-      - checkout  # This step checks out your project's code
+      - checkout
       - run:
-          name: Execute deploy.sh
+          name: Install sshpass
           command: |
-            bash sh deploy.sh
+             apt-get update
+             apt-get install -y sshpass
+             which sshpass
+      - run:
+          name: Deploy to VPS
+          command: |
+            bash deploy.sh
