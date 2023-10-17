@@ -11,19 +11,20 @@ import userRoutes from './routes/userRoutes.js'
 import orderRoutes from './routes/orderRoutes.js'
 import uploadRoutes from './routes/uploadRoutes.js'
 
-var cors = require('cors')
+import cors from 'cors'
 
-app.use(cors({
-  origin: '*',
-  methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
 
-}));
 dotenv.config()
 
 connectDB()
 
 const app = express()
 
+app.use(cors({
+  origin: '*',
+  methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
+
+}));
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'))
 }
