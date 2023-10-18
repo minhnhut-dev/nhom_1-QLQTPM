@@ -13,7 +13,7 @@ yarn run build --no-lint
 options='sshpass -p $key rsync -avzhe ssh -e "ssh -p 24700 -o StrictHostKeyChecking=no" --progress --timeout=5'
 eval $options  --exclude 'node_modules' --exclude '.git' "${PWD}"/ root@$ip_live:/home/ruby/$DOMAIN_NAME/
 
-options='sshpass -p $key ssh root@$ip_live -p 24700 "cd /home/ruby/$DOMAIN_NAME && pm2 restart all"'
+options='sshpass -p $key ssh root@$ip_live -p 24700 "cd /home/ruby/$DOMAIN_NAME && pm2 reload all"'
 eval $options
 echo "bundle done"
 
