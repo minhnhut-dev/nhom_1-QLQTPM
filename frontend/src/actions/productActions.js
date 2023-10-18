@@ -29,7 +29,6 @@ import {
   PRODUCT_TOP_FAIL,
 } from '../constants/productConstants'
 import { logout } from './userActions'
-import { axiosService, setAuthToken } from '../services/axiosServices'
 import { DOMAIN } from '../constants'
 export const listProducts = (keyword = '', pageNumber = '',sortName='', sort=true,category='') => async (
   dispatch
