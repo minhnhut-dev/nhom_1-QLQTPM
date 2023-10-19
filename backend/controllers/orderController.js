@@ -1,5 +1,6 @@
 import asyncHandler from 'express-async-handler'
 import Order from '../models/orderModel.js'
+import Product from "../models/productModel.js";
 
 // @desc    Create new order
 // @route   POST /api/orders
@@ -59,7 +60,6 @@ const getOrderById = asyncHandler(async (req, res) => {
 // @access  Private
 const updateOrderToPaid = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id)
-
   if (order) {
     order.isPaid = true
     order.paidAt = Date.now()
@@ -79,6 +79,8 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
       { _id: { $in: ids }},  
       { $inc: { countInStock: -1 }}
     )
+
+    console.log("order: ", order)
 
     res.json(updatedOrder)
   } else {

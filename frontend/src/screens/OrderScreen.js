@@ -78,7 +78,7 @@ const OrderScreen = ({ match, history }) => {
   }, [dispatch, orderId, successPay, successDeliver, order])
 
   const successPaymentHandler = (paymentResult) => {
-    console.log(paymentResult)
+    console.log(JSON.stringify(paymentResult));
     dispatch(payOrder(orderId, paymentResult))
   }
 

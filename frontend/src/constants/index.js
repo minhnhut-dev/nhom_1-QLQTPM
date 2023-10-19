@@ -1,1 +1,1 @@
-export const DOMAIN = "http://103.75.186.153:5002";
+export const DOMAIN = "http://localhost:5002";
